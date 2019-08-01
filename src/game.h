@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "state.h"
 #include "states/testState.h"
+#include "resourceManager.h"
 class Game
 {
 public:
@@ -11,6 +12,7 @@ public:
     void mainGameLoop();
     void changeState(State * pState);
     sf::RenderWindow renderWindow;
+    ResourceManager resourceManager;
 private:
     State * state;
     const int WINDOW_WIDTH;
