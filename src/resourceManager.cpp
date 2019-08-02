@@ -1,5 +1,6 @@
 #include "resourceManager.h"
 #include <iostream>
+
 ResourceManager::ResourceManager()
 {
     loadTextures();
