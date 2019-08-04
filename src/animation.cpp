@@ -80,6 +80,12 @@ void Animation::setFrame(int x)
 
 void Animation::animate(sf::Sprite &sprite) //Animate the sprite
 {
+    //don't do anything if paused
+    if (isPause)
+    {
+        sprite.setTextureRect(frame.at(currentFrame));
+        return;
+    }
     elapsedTime++;
     //If we haven't animated yet...
     if (!animateIt)
@@ -115,4 +121,9 @@ void Animation::animate(sf::Sprite &sprite) //Animate the sprite
         elapsedTime = 0; //restart the timer
     }
 
+}
+
+void Animation::setPause(bool isPause)
+{
+    this->isPause = isPause;
 }

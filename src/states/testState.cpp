@@ -8,6 +8,7 @@ TestState::TestState(Game * pGame)
     testEntity = TestEntity(game->resourceManager.testTexture);
     alien = Alien(game->resourceManager.alienTexture);
     alien.sprite.move(50,50);
+    alien.idle.setPause(true);
     cursor = Cursor(game->resourceManager.cursorTexture);
     std::cout << "HELLO, WORLD!" << std::endl;
 }
@@ -31,14 +32,15 @@ void TestState::draw()
 }
 void TestState::collisionCheck()
 {
+    //alien is touching cursor
     if (alien.sprite.getGlobalBounds().contains(cursor.getPosition().x,cursor.getPosition().y))
     {
-        cursor.finger.setFrame(0);
         cursor.finger.animate(cursor.sprite);
+        alien.idle.setPause(false);
     }
     else
     {
-        cursor.pointer.setFrame(0);
         cursor.pointer.animate(cursor.sprite);
+        alien.idle.setPause(true);
     }
 }

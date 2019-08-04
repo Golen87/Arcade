@@ -15,6 +15,7 @@ public:
     void deleteFrame(); //Is this necessary?
     void setFrame(int x); //set it to the appropriate frame
     void animate(sf::Sprite &sprite);
+    void setPause(bool isPause);
 
 private:
     //int frameDuration; //duration of a single frame
@@ -25,6 +26,7 @@ private:
     bool loop = true;
     int width;
     int height;
+    bool isPause = false;
     //sf::Texture texture;
     std::vector<sf::IntRect> frame;
 };
