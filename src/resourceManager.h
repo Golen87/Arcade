@@ -10,7 +10,7 @@ public:
     sf::Texture alienTexture;
     sf::Texture cursorTexture;
 private:
-    loadTextures();
+    void loadTextures();
 };
 
 #endif // RESOURCEMANAGER_H_INCLUDED

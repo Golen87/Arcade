@@ -6,7 +6,7 @@ ResourceManager::ResourceManager()
     loadTextures();
 }
 
-ResourceManager::loadTextures()
+void ResourceManager::loadTextures()
 {
     if (!testTexture.loadFromFile("../img/testTexture.png"))
     {
