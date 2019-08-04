@@ -1,13 +1,17 @@
 
 #include "game.h"
 Game::Game():
-    WINDOW_WIDTH(1024),
-    WINDOW_HEIGHT(768)
+    WINDOW_WIDTH(256*2),
+    WINDOW_HEIGHT(240*2)
 {
     changeState(new TestState(this));
     renderWindow.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT),"Test");
+    sf::View defaultView(sf::FloatRect(0,0,256,240));
+    //defaultView.zoom(0.5);
+    renderWindow.setView(defaultView);
     //renderWindow.setVerticalSyncEnabled(true);
     renderWindow.setFramerateLimit(60);
+    renderWindow.setMouseCursorVisible(false);
 }
 
 void Game::mainGameLoop()

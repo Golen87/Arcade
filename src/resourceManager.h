@@ -6,8 +6,10 @@ class ResourceManager
 {
 public:
     ResourceManager();
-private:
     sf::Texture testTexture;
+    sf::Texture alienTexture;
+    sf::Texture cursorTexture;
+private:
     loadTextures();
 };
 
