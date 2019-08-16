@@ -5,11 +5,11 @@
 TestState::TestState(Game * pGame)
 {
     game = pGame;
-    testEntity = TestEntity(game->resourceManager.testTexture);
-    alien = Alien(game->resourceManager.alienTexture);
+    testEntity = TestEntity(game->resourceManager.getTexture("test"));
+    alien = Alien(game->resourceManager.getTexture("alien"));
     alien.sprite.move(50,50);
     alien.idle.setPause(true);
-    cursor = Cursor(game->resourceManager.cursorTexture);
+    cursor = Cursor(game->resourceManager.getTexture("cursor"));
     std::cout << "HELLO, WORLD!" << std::endl;
 }
 
@@ -37,10 +37,20 @@ void TestState::collisionCheck()
     {
         cursor.finger.animate(cursor.sprite);
         alien.idle.setPause(false);
+        if (cursor.isLeftClick())
+            grabAlien = true;
+            //alien.sprite.setPosition(cursor.sprite.getPosition()-sf::Vector2f(10,10));
+        else
+            grabAlien = false;
     }
     else
     {
         cursor.pointer.animate(cursor.sprite);
         alien.idle.setPause(true);
+    }
+
+    if (grabAlien)
+    {
+        alien.sprite.setPosition(cursor.sprite.getPosition()-sf::Vector2f(10,10));
     }
 }

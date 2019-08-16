@@ -16,5 +16,6 @@ private:
     void update();
     void draw();
     void collisionCheck();
+    bool grabAlien = false;
 };
 #endif // TESTSTATE_H_INCLUDED

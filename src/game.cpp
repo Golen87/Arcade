@@ -1,10 +1,10 @@
-
 #include "game.h"
 Game::Game():
     WINDOW_WIDTH(256*2),
     WINDOW_HEIGHT(240*2)
 {
-    changeState(new TestState(this));
+    //changeState(new TestState(this));
+    //changeState(new TrackerState(this));
     renderWindow.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT),"Test");
     sf::View defaultView(sf::FloatRect(0,0,256,240));
     //defaultView.zoom(0.5);
@@ -12,6 +12,8 @@ Game::Game():
     //renderWindow.setVerticalSyncEnabled(true);
     renderWindow.setFramerateLimit(60);
     renderWindow.setMouseCursorVisible(false);
+
+    changeState(new TrackerState(this));
 }
 
 void Game::mainGameLoop()

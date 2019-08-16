@@ -12,6 +12,7 @@ public:
     void update(sf::RenderWindow &renderWindow);
     Animation pointer;
     Animation finger;
+    bool isLeftClick();
 };
 
 #endif // CURSOR_H_INCLUDED

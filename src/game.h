@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include "state.h"
 #include "states/testState.h"
+#include "states/virtualMachineState.h"
+#include "states/trackerState.h"
 #include "resourceManager.h"
 class Game
 {

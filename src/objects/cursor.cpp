@@ -24,3 +24,9 @@ void Cursor::update(sf::RenderWindow &renderWindow)
     sf::Vector2f worldPos = renderWindow.mapPixelToCoords(pixelPos);
     sprite.setPosition(worldPos);
 }
+
+bool Cursor::isLeftClick()
+{
+    return sf::Mouse::isButtonPressed(sf::Mouse::Left);
+}
+
